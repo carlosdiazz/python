@@ -1,5 +1,5 @@
 lista=[];import os,time
-
+#print("")
 def cargando():
     print("Cargando")
     time.sleep(0.20);os.system("cls")
