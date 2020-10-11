@@ -1,5 +1,5 @@
 
-saber=int(input("Escriba hasta que num,ero deseas contar: "))
+saber=int(input("Escriba hasta que numero deseas contar: "))
 i=1
 
 numeros=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
@@ -37,7 +37,7 @@ print(busqueda_lineal(numeros,saber))
     
 print(busqueda_bina(numeros,saber))
 
-def ordenar_numeros():
+def ordenar_numeros(lista):
     n = len(lista)
 
     for i in range(0,n-1):
@@ -45,9 +45,9 @@ def ordenar_numeros():
         t = lista[i]
         for j in range(i,n):
             if lista[j] < t:
-            k = j
-            t = lista[j]
-   lista[k] = lista[i]
-   lista[i] = t
+                k = j
+                t = lista[j]
+        lista[k] = lista[i]
+        lista[i] = t
 
- return lista
+    return lista
