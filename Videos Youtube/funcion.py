@@ -3,8 +3,8 @@ os.system("cls")
 
 def main():
     
-    
-    print(xo("232dsfx"))
+    print(digital_root(493193 ))
+    #print(to_camel_case("A-B-C"))
     #print(xo("xooxx"))
     #print(xo("ooxXm"))
     #print(xo("zpzpzpp"))
@@ -64,7 +64,54 @@ def xo(s):
             if "o" not in  s:
                 return True
         return False
+
+#Aqui una funcion que si hay un - o un _ , la siguiente letra sera mayuscula     
+def to_camel_case(s):
+    nueva=[]
+    mayus=False
+    for i in s:
+        
+        if i == "-" or i =="_":
+            mayus=True
+
+        else:
+
+            if mayus==False:
+                nueva.append(i)
+            elif mayus==True:
+                nueva.append(i.capitalize())
+                mayus=False
+
+    return "".join(nueva)
+
+#Esta funcion suma los numeros de un string, y lo convierte a int el string
+def sumar_numero(lista):
+    sumatoria=0
+    for i in lista:
+        sumatoria=sumatoria+int(i)
+    return sumatoria
+
+#Esta funcion se encarga de sumar los numeros, hasta que quede solo un numero Ej: 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+def digital_root(n):
+
+    detener=len(str(n))
+    solo=str(n)
     
-    
+    while detener != 1:
+        solo=sumar_numero(str(solo))
+        detener=len(str(solo))
+        
+    return solo
+
+
+
+
+
+
+
+
+        
+
+
 
 main()
