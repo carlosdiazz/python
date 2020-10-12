@@ -1,4 +1,5 @@
 import os
+#En este codigo se encuetran varios algortimos de la pagina https://www.codewars.com/dashboard nivel Basico
 
 def main():
     hacer=int(input("Ingrese que quieres hacer: "))
