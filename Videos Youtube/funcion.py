@@ -24,8 +24,7 @@ def main():
         elif hacer == 4:
             nume=int(input("Ingrese un numero para sumar hasta que quede un digito: "))
             print(digital_root(nume ))
-
-        
+       
         elif hacer == 5:
             palabra=input("Aqui la letra se pondra mayuscula si hay un - o un _: ")
             print(to_camel_case(palabra))
@@ -40,6 +39,14 @@ def main():
             lista=[1,2,'aasf','1','123',123,14] 
             print(sacar_numero(lista))
         
+        elif hacer == 8:
+            numero=int(input("Ingrese un numero para comprobar si es primo: "))
+            print(divisors(numero))
+        
+        elif hacer == 9:
+            lista=input("Ingrese numeros dejando un espacio para luego buscar el mas alto y el mas bajo: ")
+            print(high_and_low(lista))
+
         hacer=int(input("Ingrese que quieres hacer: "))
 
 def anadir_nombre():
@@ -185,5 +192,33 @@ def saber_repetidas(palabra):
         return repetida
     else: 
         return repetida,salida
-  
+
+#Este programa sca todos los divisodres de un primo menos el 1 y el mismo numero, y si es primo indica que es primo
+def divisors(numero):
+    primos=[]
+
+    for i in range (2,numero):
+        primo=numero%i
+        if primo == 0:
+            primos.append(i)
+    
+    if len(primos)==0:
+        numero=str(numero)
+        cadena=numero+" is prime"
+        return cadena
+    else:
+        return primos
+
+#En esta pequeña tarea, se le da una serie de números separados por espacios y debe devolver el número más alto y el más bajo.
+def high_and_low(numeros):
+    numeros=numeros.split()
+    salida=[]
+    for i in numeros:
+        ok=int(i)
+        salida.append(ok)
+    maximo=str(max(salida))
+    minimo=str(min(salida))
+    salida=(f"{maximo)} {minimo}")
+    return salida
+
 main()
