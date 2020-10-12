@@ -18,14 +18,17 @@ def main():
             print(saber_repetidas(palabra))
         
         elif hacer == 3:
-            print(friend(["Ryan", "Kieran", "Mark","jose","Maria","Cecilia","Carlos"]))
+            lista=anadir_nombre()
+            print(friend(lista))
 
         elif hacer == 4:
-            print(digital_root(132189 ))
-            print(digital_root(493193 ))
+            nume=int(input("Ingrese un numero para sumar hasta que quede un digito: "))
+            print(digital_root(nume ))
+
         
         elif hacer == 5:
-            print(to_camel_case("A-B-C"))
+            palabra=input("Aqui la letra se pondra mayuscula si hay un - o un _: ")
+            print(to_camel_case(palabra))
         
         elif hacer == 6:
             print(xo("xooxx"))
@@ -38,6 +41,14 @@ def main():
             print(sacar_numero(lista))
         
         hacer=int(input("Ingrese que quieres hacer: "))
+
+def anadir_nombre():
+    lista=[]
+    contador=int(input("Cuanto nombres quieres anadir: "))
+    for i in range(contador):
+        nombre=input("Ingrese un nombre: ")
+        lista.append(nombre)
+    return lista
 
 def numeros_al100():
     i=0
