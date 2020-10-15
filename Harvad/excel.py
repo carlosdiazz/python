@@ -1,6 +1,6 @@
 import csv
 
-file = open("texto.csv", "a")
+file = open("./Harvad/texto.csv", "a")
 
 nombre=input("Ingrese su nombre: ")
 numero=input("Ingrese su numero: ")

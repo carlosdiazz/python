@@ -218,7 +218,7 @@ def high_and_low(numeros):
         salida.append(ok)
     maximo=str(max(salida))
     minimo=str(min(salida))
-    salida=(f"{maximo)} {minimo}")
+    salida=(f"{maximo} {minimo}")
     return salida
 
 main()
