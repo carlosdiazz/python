@@ -47,6 +47,14 @@ def main():
             lista=input("Ingrese numeros dejando un espacio para luego buscar el mas alto y el mas bajo: ")
             print(high_and_low(lista))
 
+        elif hacer == 10:
+            a=int(input("Ingrese la poblacion inicial: "))
+            b=int(input("Ingrese el porcentaje de incremento: "))
+            c=int(input("Ingrese la poblacion anual: "))
+            d=int(input("Ingrese la poblacion deseada: "))
+            #print(nb_year(1500, 5, 100, 5000))
+            print(f"Necesita de: {nb_year(a,b,c,d)} años")
+
         hacer=int(input("Ingrese que quieres hacer: "))
 
 def anadir_nombre():
@@ -220,5 +228,13 @@ def high_and_low(numeros):
     minimo=str(min(salida))
     salida=(f"{maximo} {minimo}")
     return salida
+
+#En una ciudad pequeña, la población es p0 = 1000 al comienzo de un año. La población aumenta regularmente en un 2 por ciento anual y, además, más de 50 nuevos habitantes por año vienen a vivir a la ciudad. ¿Cuántos años necesita la ciudad para que su población sea mayor o igual ap = 1200 habitantes?
+def nb_year(p0, percent, aug, p):
+    anos=0
+    while p0<=p:       
+        p0=(p0+((p0*percent)/100)+aug)
+        anos=anos+1
+    return anos
 
 main()
