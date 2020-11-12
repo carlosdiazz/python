@@ -1,5 +1,7 @@
 import os
 #En este codigo se encuetran varios algortimos de la pagina https://www.codewars.com/dashboard nivel Basico
+#poner comentario control k c... quitar comentario control k u
+
 
 def main():
     hacer=int(input("Ingrese que quieres hacer: "))
@@ -55,7 +57,13 @@ def main():
             #print(nb_year(1500, 5, 100, 5000))
             print(f"Necesita de: {nb_year(a,b,c,d)} años")
 
+        elif hacer ==11:
+            palabra=input("Ingrese una frase: ")
+            print(reverse_words(palabra))
+
         hacer=int(input("Ingrese que quieres hacer: "))
+
+        
 
 def anadir_nombre():
     lista=[]
@@ -236,5 +244,30 @@ def nb_year(p0, percent, aug, p):
         p0=(p0+((p0*percent)/100)+aug)
         anos=anos+1
     return anos
+
+#Complete la función que acepta un parámetro de cadena e invierte cada palabra en la cadena. Todos los espacios en la cadena deben conservarse.
+def reverse_words(text):
+    nueva=""
+    lista=[]
+    for i in text:
+        
+        if i != " ":
+            nueva=nueva+i
+
+        else:
+            if len(nueva) != 0:
+                nueva="".join(reversed(nueva))
+                lista.append(nueva)
+                nueva=""
+
+            if i==" ":
+                lista.append(i)
+
+    if nueva != "":
+        nueva="".join(reversed(nueva))
+        lista.append(nueva)
+
+    lista = "".join(lista)
+    return lista
 
 main()
