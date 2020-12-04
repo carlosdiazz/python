@@ -2,11 +2,17 @@ import os
 #En este codigo se encuetran varios algortimos de la pagina https://www.codewars.com/dashboard nivel Basico
 #poner comentario control k c... quitar comentario control k u
 
+def clear():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 
 def main():
     hacer=int(input("Ingrese que quieres hacer: "))
     while True:
-        os.system("cls")       
+        clear()
 
         if hacer == 0:
             break
@@ -60,6 +66,10 @@ def main():
         elif hacer ==11:
             palabra=input("Ingrese una frase: ")
             print(reverse_words(palabra))
+
+        elif hacer == 12:
+            seconds=int(input("Ingrese un numero para calcular el tiempo: "))
+            print(make_readable(seconds))
 
         hacer=int(input("Ingrese que quieres hacer: "))
 
@@ -269,5 +279,26 @@ def reverse_words(text):
 
     lista = "".join(lista)
     return lista
+
+
+def make_readable(seconds):
+
+    horas=seconds//3600
+    minutes=-((horas*60)-(seconds//60))
+    seconds=-((horas*3600)+(minutes*60)-(seconds))
+
+    if horas<10:
+        horas="0{}".format(horas)
+
+    if minutes<10:
+        minutes="0{}".format(minutes)
+    if seconds<10:
+        seconds="0{}".format(seconds)
+    
+
+    return "{}:{}:{}".format(horas,minutes,seconds)
+
+def make_readablee(s):
+    return '{:02}:{:02}:{:02}'.format(s / 3600, s / 60 % 60, s % 60)
 
 main()
