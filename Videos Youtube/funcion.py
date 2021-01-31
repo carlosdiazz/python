@@ -71,6 +71,11 @@ def main():
             seconds=int(input("Ingrese un numero para calcular el tiempo: "))
             print(make_readable(seconds))
 
+        elif hacer == 13:
+            ini=input("Ingrese una palabra: ")
+            encontrar= input("Ingrese palabra a encontrar:")
+            print(solution(ini,encontrar))
+
         hacer=int(input("Ingrese que quieres hacer: "))
 
         
@@ -300,5 +305,14 @@ def make_readable(seconds):
 
 def make_readablee(s):
     return '{:02}:{:02}:{:02}'.format(s / 3600, s / 60 % 60, s % 60)
+
+#Aqui imprimo verdadero si la palabra terminar en la palabra que quiero, 
+def solution(string, ending):
+    if string.endswith(ending):
+        return True
+    else:
+        return False
+
+
 
 main()
