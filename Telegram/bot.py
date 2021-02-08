@@ -4,6 +4,7 @@ import telegram
 import random
 from telegram.ext import Updater, CommandHandler, MessageHandler,Filters
 import time
+import binario
 
 
 #Configurar Logging
@@ -15,6 +16,7 @@ logger=logging.getLogger()
 #Solicitar Token
 
 TOKEN = "1686868043:AAGomDK3Tvdu31IUHPHvgzio1PlG-4pFIko"
+#TOKEN = os.getenv("TOKEN")
 
 def start(update,context):
   logger.info(f"El usuario {update.effective_user['username']}, ha iniciado una conversacion")
@@ -45,11 +47,32 @@ def random_number(update,context):
   number = random.randint(0,10)
   context.bot.sendMessage(chat_id = user_id, parse_mode = "HTML",text = f"<b>Numero</b>  aleatorio: \n {number}")
 
+def pale(update,context):
+  user_id = update.effective_user['id']
+  #print(update.effective_user)
+  #Para imprimir
+  print(user_id)
+  logger.info(f'El usuario {user_id}, ha solicitado un pale')
+  number = str(random.randint(10,100))+" "+str(random.randint(10,100))
+  context.bot.sendMessage(chat_id = user_id, parse_mode = "HTML",text = f"<b>Pale</b>  aleatorio: \n {number}")
+
+def mensaje():
+  a='''
+    Mis funciones son:\n\n
+    /start: Te saludo\n
+    /random: Te doy un numero aleatorio\n
+    /info: Te doy mis comandos\n
+    /datos: Te doy tus datos\n
+    /pale: Te doy un pale\n\n
+Si me manda otro mensaje te lo repito
+  '''
+  return a
 
 def info(update,context):
+  mensa=mensaje()
   user_id = update.effective_user['id']
   logger.info(f'El usuario {user_id}, ha solicitado la linea de comandos')
-  update.message.reply_text("Mis funciones son:\n\n   /start: Te saludo\n   /random: Te doy un numero aleatorio\n    /info: Te doy mis comandos\n   /datos: Te doy tus datos\n\nSi me manda otro mensaje te lo repito")
+  update.message.reply_text(mensa)
 
 def echo(update, context):
   user_id = update.effective_user['id']
@@ -90,6 +113,8 @@ if __name__ == "__main__":
   dp.add_handler(CommandHandler("start",start))
   
   dp.add_handler(CommandHandler("random",random_number))
+
+  dp.add_handler(CommandHandler("pale",pale))
 
   dp.add_handler(CommandHandler("datos",datos))
 
